@@ -17,6 +17,13 @@ router.get('/data', function(req, res) {
 	});
 });
 
+/* Test route that works ... sends raw text. */
+router.post('/data', function(req, res) {
+	transactions.createTransaction(function(data) {
+		res.jsonp(data);
+	});
+});
+
 router.put('/payment', function(req, res) {
 	transactions.updateTransaction(req, function(data) {
 		// do nothing with the data
