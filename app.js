@@ -1,5 +1,3 @@
-
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/user');
-var transactions = require('./models/transaction');
+var routes = require('./server/routes/index');
+var users = require('./server/routes/user');
+var transactions = require('./server/models/transaction');
 
 var localDB = 'mongodb://localhost/sharedfinance';
 // var hostedDB = 'mongodb://heroku_pfgs482g:oru1ndak8cke7sl335s2ginheu@ds061148.mongolab.com:61148/heroku_pfgs482g';
@@ -42,7 +40,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, './build')));
 
 // default (?) route processor
 app.use('/', routes);

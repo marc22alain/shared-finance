@@ -3,13 +3,13 @@ var gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   livereload = require('gulp-livereload'),
   child_process = require('child_process'),
-  mock_data = require('./mock_data');
+  mock_data = require('./server/mock_data');
 
 
 gulp.task('develop', ['mongod'], function () {
   livereload.listen();
   nodemon({
-    script: 'bin/www',
+    script: 'server/bin/www',
     ext: 'js ejs coffee',
     stdout: false
   }).on('readable', function () {

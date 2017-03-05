@@ -13,3 +13,7 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+public/components
+.nyc_output
+.sass-cache
