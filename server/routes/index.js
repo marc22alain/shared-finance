@@ -28,6 +28,16 @@ router.post('/data', function(req, res) {
 	});
 });
 
+router.delete('/data', function(req, res) {
+	transactions.Transaction.remove({}, function(err) {
+		if (err) {
+			res.status(400).send(err);
+		} else {
+			res.status(200).send();
+		}	
+	});
+});
+
 router.put('/payment', function(req, res) {
 	transactions.updateTransaction(req, function(data) {
 		// do nothing with the data
