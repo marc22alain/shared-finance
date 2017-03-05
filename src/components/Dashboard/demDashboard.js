@@ -5,13 +5,20 @@ import UnpaidBill from './UnpaidBill';
 import PaidBill from './PaidBills';
 
 class demDashboard extends Component {
+    constructor(){
+        super()
+        this.state = {
+            role : "personWithDementia"
+        }
+    }
+    
   render() {
     return (
       <div className="dashboard-container">
         <Header />
         <div clasName="row">
             <div className="col-lg-6 col-lg-offset-3">
-                <UnpaidBill />
+                <UnpaidBill role={this.state.role}/>
             </div>
         </div>
       </div>

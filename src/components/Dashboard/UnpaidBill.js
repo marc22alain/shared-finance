@@ -29,6 +29,14 @@ class UnpaidBill extends Component {
                 this.setState({
                     unpaidBill:res.data
                 });
+                if(this.props.role === "caregiver"){
+                    Axios
+                        .get('https://sharedfinance.herokuapp.com/longpoll')
+                        .then((res)=>{
+                            console.log(res);
+                            this.props.flipSubmit();
+                        })
+                }
             })
             .catch(function (error) {
                 console.log(error);

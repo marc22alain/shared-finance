@@ -11,6 +11,7 @@ class Payment extends Component {
     constructor(){
         super();
         this.state = {
+            role:"caregiver",
             open:false,
             submit:false,
             unpaidBill :[
@@ -50,7 +51,7 @@ class Payment extends Component {
             </div>
         </div>
         <div className="bills col-lg-6">
-            <UnpaidBill flipSubmit={this.flipSubmit}/>
+            <UnpaidBill role={this.state.role} flipSubmit={this.flipSubmit}/>
             <PaidBill submit={this.state.submit} />
         </div>
 
