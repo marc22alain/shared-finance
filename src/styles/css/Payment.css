@@ -1,8 +1,33 @@
 .payment-container {
-  display: inline-block; }
+  transform: translateY(-3.5%);
+  height: 100vh;
+  width: 100%; }
   .payment-container .blue-bar {
     background-color: #064475;
-    width: 40px;
-    height: 200px; }
+    height: 100%; }
+  .payment-container .account-balance {
+    border-right: 1px solid black;
+    height: 100%; }
+    .payment-container .account-balance .button {
+      width: 80%;
+      border-radius: 4px;
+      height: 35px;
+      text-align: center;
+      margin: 20px 0; }
+      .payment-container .account-balance .button span {
+        color: #f1f1f1;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px; }
+    .payment-container .account-balance .checking {
+      background-color: #3797E2; }
+    .payment-container .account-balance .savings {
+      background-color: #0F68B0; }
+    .payment-container .account-balance .visa {
+      background-color: #064475; }
+  .payment-container .bills {
+    border-right: 1px solid black;
+    height: 100%; }
+  .payment-container .spending-distribution {
+    height: 100%; }
 
 /*# sourceMappingURL=Payment.css.map */

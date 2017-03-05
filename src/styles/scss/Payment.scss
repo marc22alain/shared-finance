@@ -1,8 +1,47 @@
 .payment-container{
-    display: inline-block;
+    // display: inline-block;
+    transform: translateY(-3.5%);
+    height:100vh;
+    width:100%;
     .blue-bar{
         background-color:#064475;
-        width:40px; 
-        height:200px;
+        height:100%;       
+        
+    }
+    .account-balance{
+        border-right: 1px solid black;
+        height:100%; 
+        .button{
+            width:80%;
+            
+            // border:1px solid black;
+            border-radius: 4px;
+            height:35px;
+            text-align:center;
+            margin: 20px 0;
+            span{
+                color:#f1f1f1;
+                font-family: 'Lato', sans-serif;
+                font-size:20px;
+            }
+        }
+        .checking{
+            background-color:#3797E2;
+        }
+        .savings{
+            background-color:#0F68B0;
+        }
+        .visa{
+            background-color:#064475;
+        }
+    }
+    .bills{
+        border-right: 1px solid black;
+        height:100%; 
+    }
+    .spending-distribution{
+        // border-right: 1px solid black;
+        height:100%; 
     }
 }
+    
