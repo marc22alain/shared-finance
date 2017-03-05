@@ -18,7 +18,11 @@ var transactionSchema = mongoose.Schema({
 	status: {
 		type: String,
 		enum: ['unpaid', 'paid']
-	}
+	},
+    approved: {
+        type: Boolean,
+        required: 'Please provide a value for approved status'
+    }
 });
 
 var Transaction = mongoose.model('Transaction', transactionSchema);
