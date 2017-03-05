@@ -33,19 +33,18 @@ class Payment extends Component {
       <FlatButton
         label="Cancel"
         primary={true}
-        onTouchTap={this.handleClose}
+        onClick={this.handleClose}
       />,
       <FlatButton
         label="Submit"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClose}
+        onClick={this.handleClose}
       />,
     ];
     return (
     <div className="payment-container row"> 
-        <div className="blue-bar col-lg-2">
-            
+        <div className="blue-bar col-lg-2"> 
         </div>
         <div className="account-balance col-lg-3">
             <h3>Account Balances</h3>
@@ -66,7 +65,7 @@ class Payment extends Component {
             <h3>Bills</h3>
             <div className="unpaid-bills">
                 <h4>Unpaid Bills</h4>
-                <Table>
+                <Table selectable={false}>
                     <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
                     <TableRow>
                         <TableHeaderColumn>Due Date</TableHeaderColumn>
@@ -83,7 +82,7 @@ class Payment extends Component {
                                 <TableRowColumn>{data.payee}</TableRowColumn>
                                 <TableRowColumn>${data.amount}</TableRowColumn>
                                 <TableRowColumn>
-                                    <RaisedButton label="Pay Now" onTouchTap={this.handleOpen} secondary={true} style={style} />
+                                    <RaisedButton label="Pay Now" onClick={this.handleOpen} secondary={true} style={style} />
                                     <Dialog
                                         title="Dialog With Actions"
                                         actions={actions}
