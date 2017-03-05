@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import './../styles/App.css';
+import './../styles/css/App.css';
 
 class Nav extends Component {
   render() {
@@ -18,7 +18,11 @@ class Nav extends Component {
                         Login
                     </Link>
                 </li>
-                <li>Dashboard</li>
+                <li>
+                    <Link to="/dashboard">
+                        Dashboard
+                    </Link>
+                </li>
             </ul>
         </div>
         {this.props.children} 

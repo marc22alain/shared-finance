@@ -6,21 +6,25 @@
   display: flex;
   align-items: center; }
   .login-container .wrapper h1 {
+    font-family: 'Lato', sans-serif;
     color: #f1f1f1;
-    font-weight: 400; }
+    font-weight: 500; }
     .login-container .wrapper h1 #skinny {
-      font-weight: 100; }
+      font-weight: 200; }
   .login-container .wrapper .login-form .input-wrapper {
     margin: 20px; }
     .login-container .wrapper .login-form .input-wrapper label {
       font-size: 17px;
+      font-weight: 300;
       color: #f1f1f1;
       margin-right: 50px; }
     .login-container .wrapper .login-form .input-wrapper input {
       background-color: #026abc;
       border: 2px solid #f1f1f1;
-      border-radius: 4px; }
+      border-radius: 4px;
+      color: #f1f1f1; }
   .login-container .wrapper p {
+    margin-top: 15px;
     color: #f1f1f1; }
     .login-container .wrapper p a {
       text-decoration: none;
@@ -28,5 +32,19 @@
       .login-container .wrapper p ahover {
         text-decoration: none;
         cursor: pointer; }
+  .login-container .wrapper .login-button {
+    background-color: #f1f1f1;
+    width: 40%;
+    position: relative;
+    margin: auto;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center; }
+    .login-container .wrapper .login-button:hover {
+      cursor: pointer; }
+    .login-container .wrapper .login-button span {
+      color: #026abc;
+      transform: translateY(10%);
+      font-size: 20px; }
 
 /*# sourceMappingURL=Login.css.map */

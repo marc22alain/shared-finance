@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import './../styles/App.css';
+import Nav from './Nav'
+import './../styles/css/App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Nav />
         Welcome to Share Finance
       </div>
     );

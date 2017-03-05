@@ -1,0 +1,13 @@
+.header-container {
+  background-color: #026abc;
+  transform: translateY(-17%);
+  padding-top: 20px;
+  height: 120px; }
+  .header-container .logo-container {
+    margin: 0 10px; }
+    .header-container .logo-container h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      color: #f1f1f1; }
+
+/*# sourceMappingURL=Header.css.map */
