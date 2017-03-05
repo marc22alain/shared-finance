@@ -4,11 +4,34 @@
     padding-top:20px;
     height:120px;
     .logo-container{
+        float:left;
         margin: 0 10px;
         h1{
             font-family: 'Lato', sans-serif;
             font-weight:500;
             color:#f1f1f1;
+        }
+    }
+    .avatar-container{
+        margin: 0 10px;
+        float:right;
+        ul{
+            li{
+                list-style: none;
+                display:inline-block;
+                .avatar{
+                    position:relative;
+                    bottom:10px;
+                    width:60px;
+                    height:60px;
+                    .photo{
+                        border:2px solid #DDD;
+                        border-radius: 25px;
+                        width:50px;
+                        height:50px;
+                    }
+                }
+            }
         }
     }
 }
