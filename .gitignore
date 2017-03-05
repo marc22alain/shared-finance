@@ -17,3 +17,4 @@ npm-debug.log
 public/components
 .nyc_output
 .sass-cache
+mongoDBsecrets.txt
