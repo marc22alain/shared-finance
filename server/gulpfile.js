@@ -1,10 +1,12 @@
 var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   plumber = require('gulp-plumber'),
-  livereload = require('gulp-livereload');
+  livereload = require('gulp-livereload'),
+  child_process = require('child_process'),
+  mock_data = require('./mock_data');
 
 
-gulp.task('develop', function () {
+gulp.task('develop', ['mongod'], function () {
   livereload.listen();
   nodemon({
     script: 'bin/www',
@@ -24,3 +26,11 @@ gulp.task('develop', function () {
 gulp.task('default', [
   'develop'
 ]);
+
+/* Spawns a separate process to start the mongoDB daemon */
+gulp.task('mongod', function(done) {
+  child_process.exec('mongod', function (err, stdout, stderr) {});
+  done();
+});
+
+gulp.task('mockdata', mock_data());

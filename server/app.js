@@ -6,9 +6,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
+var transactions = require('./models/transaction');
+
+var localDB = 'mongodb://localhost/sharedfinance';
+// var hostedDB = 'mongodb://heroku_pfgs482g:oru1ndak8cke7sl335s2ginheu@ds061148.mongolab.com:61148/heroku_pfgs482g';
+
+mongoose.connect(localDB, function(err) {
+    if (err) {
+        console.log('OOPS! ', err);     
+    }
+    else {
+        console.log('DB is good to go');
+    }
+});
 
 var app = express();
 
@@ -30,6 +44,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// default (?) route processor
 app.use('/', routes);
 app.use('/users', users);
 
