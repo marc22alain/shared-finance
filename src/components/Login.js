@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './../styles/css/Login.css';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Link} from 'react-router';
 
 class Login extends Component {
   render() {
@@ -21,11 +22,13 @@ class Login extends Component {
                     <label>Password</label>
                     <input type="password" className="password input"></input>
                 </div>
-                <div className="login-button">
-                    <span>Login </span>
-                </div>
+                <Link style={{"linkDecoration":"none"}} to="/dashboard">
+                    <div className="login-button">
+                        <span>Login </span>
+                    </div>
+                </Link>
             </div>
-            <p>Forgot password? Click <a href="https://www.google.ca/"><strong>HERE!</strong></a></p>
+            <p>Forgot password? Click <Link to="/dashboard"><strong>HERE!</strong></Link></p>
         </div> 
       </div>
     );
