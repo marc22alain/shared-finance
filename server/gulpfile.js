@@ -33,4 +33,4 @@ gulp.task('mongod', function(done) {
   done();
 });
 
-gulp.task('mockdata', mock_data());
+gulp.task('mockdata', mock_data.mockdata());

@@ -6,22 +6,25 @@ var localDB = 'mongodb://localhost/sharedfinance';
 var bills = [{
   value: 250.93,
   payee: 'Bell',
-  duedate: 'Apr 17, 2017'
+  duedate: 'Apr 17, 2017',
+  status: 'unpaid'
 },
 {
   value: 125.67,
-  payee: 'Toronto Hydro',
-  duedate: 'Apr 26, 2017'
+  payee: 'TorontoHydro',
+  duedate: 'Apr 26, 2017',
+  status: 'unpaid'
 },{
   value: 55.15,
   payee: 'Visa',
-  duedate: 'Apr 30, 2017'
+  duedate: 'Apr 30, 2017',
+  status: 'unpaid'
 }];
 
 var count = bills.length;
 
 
-module.exports = function() {
+var mockdata = function() {
   mongoose.connect(localDB, function(err) {
   if (err) {
     console.log('OOPS! ', err);     
@@ -66,3 +69,6 @@ var disconnect = function() {
   });
 }
 
+module.exports = {
+  mockdata: mockdata
+};
