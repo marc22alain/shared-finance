@@ -4,7 +4,8 @@ var  transactions = require('./server/models/transaction'),
 
 var mock_data = JSON.parse(fs.readFileSync('./mock.json'));
 
-mock_data.data.forEach(function(obj) {
+var populate = function() {
+  mock_data.data.forEach(function(obj) {
 	request({
       uri: 'https://sharedfinance.herokuapp.com/data',
       method: 'post',
@@ -17,6 +18,18 @@ mock_data.data.forEach(function(obj) {
       	console.log(body);
       }
     });
+  });
+};
+
+request({
+  uri: 'https://sharedfinance.herokuapp.com/data',
+  method: 'delete',
+  },
+  function(error, response, body) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("DELETE");
+      populate();
+    }
 });
-
-
