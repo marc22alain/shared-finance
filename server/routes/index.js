@@ -51,7 +51,7 @@ router.put('/payment', function(req, res) {
 });
 
 /* Receive and handle long poll AJAX request from caregiver's client. */
-router.post('/longpoll', function(req, res) {
+router.get('/longpoll', function(req, res) {
 	// register the observer
 	observers.push(res);
 });
