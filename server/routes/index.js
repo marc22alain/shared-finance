@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 
 /* Test route that works ... sends raw text. */
 router.get('/data', function(req, res) {
-	transactions.listUnpaidTransactions(function(data) {
+	transactions.listTransactions(req, function(data) {
 		res.jsonp(data);
 	});
 });
@@ -21,7 +21,7 @@ router.get('/data', function(req, res) {
 router.post('/data', function(req, res) {
 	transactions.createTransaction(req.body, function(err, result) {
 		if (err) {
-			res.jsonp(result);
+			res.status(400).send(err);
 		} else {
 			res.jsonp(result);
 		}
