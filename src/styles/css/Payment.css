@@ -1,0 +1,8 @@
+.payment-container {
+  display: inline-block; }
+  .payment-container .blue-bar {
+    background-color: #064475;
+    width: 40px;
+    height: 200px; }
+
+/*# sourceMappingURL=Payment.css.map */
