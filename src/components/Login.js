@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../styles/Login.css';
+import './../styles/css/Login.css';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class Login extends Component {
@@ -11,19 +11,21 @@ class Login extends Component {
     return (
       <div className="login-container row">
         <div className="col-lg-4 col-lg-offset-4 wrapper">
-            <h1>Independence <span id="skinny">Banking</span></h1>
+            <h1>Independence <span id="skinny"style={{"fontWeight":"10"}}>Banking</span></h1>
             <div className="login-form">
                 <div className="input-wrapper">
-                    <label>Username</label>
+                    <label placeholder="username">Username</label>
                     <input className="username input"></input>
                 </div>
                 <div className="input-wrapper">
                     <label>Password</label>
-                    <input className="password input"></input>
+                    <input type="password" className="password input"></input>
                 </div>
-                <RaisedButton label="Default" style={style} />
+                <div className="login-button">
+                    <span>Login </span>
+                </div>
             </div>
-            <p>Forgot password? Click <a><strong>HERE!</strong></a></p>
+            <p>Forgot password? Click <a href="https://www.google.ca/"><strong>HERE!</strong></a></p>
         </div> 
       </div>
     );
