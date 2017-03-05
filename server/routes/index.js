@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'),
+  transactions = require('../models/transaction'),
+  router = express.Router();
 
 /* GLOBALS */
 var openResPWD, openResCGV;
@@ -10,8 +11,18 @@ router.get('/', function(req, res) {
 });
 
 /* Test route that works ... sends raw text. */
-router.get('/more', function(req, res) {
-	res.jsonp({'not a page': 'brolly'});
+router.get('/data', function(req, res) {
+	transactions.listUnpaidTransactions(function(data) {
+		res.jsonp(data);
+	});
+});
+
+router.put('/payment', function(req, res) {
+	transactions.updateTransaction(req, function(data) {
+		// do nothing with the data
+		var tranID = Math.floor(Math.random()*1000000);
+		res.jsonp( { confirmation: tranID });
+	});
 });
 
 /* Receive and handle long poll AJAX request from PWD's client. */

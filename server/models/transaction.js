@@ -14,6 +14,10 @@ var transactionSchema = mongoose.Schema({
 	duedate: {
 		type: String,
 		required: 'Please input a due date for the transaction'
+	},
+	status: {
+		type: String,
+		enum: ['unpaid', 'paid']
 	}
 });
 
@@ -33,8 +37,15 @@ exports.createTransaction = function(data, callback) {
     });
 };
 
-exports.updateTransaction = function(transaction, callback) {
-    transaction.save( function (err, result) {
+exports.updateTransaction = function(req, callback) {
+	// console.log(typeof(req.body));
+	// console.log(req.transaction);
+ //  var transaction = req.transaction;
+
+ //  transaction = _.extend(transaction , req.body);
+
+ 	var transaction = req.body;
+    Transaction.update( { 'payee': transaction.payee }, { 'status': 'paid' }, function (err, result) {
         if (err) {
             callback({ message: errorHandler.getErrorMessage(err)}, result);
         } else {
@@ -53,3 +64,15 @@ exports.listTransactions = function(callback) {
         }
     });
 }
+
+exports.listUnpaidTransactions = function(callback) {
+    Transaction.find({ 'status': 'unpaid'} ).exec(function(err, result) {
+        if (err) {
+            console.log(errorHandler.getErrorMessage(err));
+        }
+        else {
+            callback(result);
+        }
+    });
+}
+
