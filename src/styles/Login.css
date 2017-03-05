@@ -1,0 +1,32 @@
+.login-container {
+  background-color: #026abc;
+  padding: 10px;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center; }
+  .login-container .wrapper h1 {
+    color: #f1f1f1;
+    font-weight: 400; }
+    .login-container .wrapper h1 #skinny {
+      font-weight: 100; }
+  .login-container .wrapper .login-form .input-wrapper {
+    margin: 20px; }
+    .login-container .wrapper .login-form .input-wrapper label {
+      font-size: 17px;
+      color: #f1f1f1;
+      margin-right: 50px; }
+    .login-container .wrapper .login-form .input-wrapper input {
+      background-color: #026abc;
+      border: 2px solid #f1f1f1;
+      border-radius: 4px; }
+  .login-container .wrapper p {
+    color: #f1f1f1; }
+    .login-container .wrapper p a {
+      text-decoration: none;
+      color: inherit; }
+      .login-container .wrapper p ahover {
+        text-decoration: none;
+        cursor: pointer; }
+
+/*# sourceMappingURL=Login.css.map */
