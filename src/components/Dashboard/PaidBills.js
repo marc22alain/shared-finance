@@ -41,12 +41,12 @@ class PaidBill extends Component {
                 this.setState({
                     paidBill:res.data
                 });
-                
+                console.log('wohoooo')
+
             })
             .catch(function (error) {
                 console.log(error);
             });
-        
         }
     }
   render() {

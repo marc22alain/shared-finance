@@ -51,7 +51,7 @@ class Payment extends Component {
             </div>
         </div>
         <div className="bills col-lg-6">
-            <UnpaidBill role={this.state.role} flipSubmit={this.flipSubmit}/>
+            <UnpaidBill submit={this.state.submit} role={this.state.role} flipSubmit={this.flipSubmit}/>
             <PaidBill submit={this.state.submit} />
         </div>
 

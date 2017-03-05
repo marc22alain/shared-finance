@@ -57,11 +57,29 @@ class UnpaidBill extends Component {
             .put('https://sharedfinance.herokuapp.com/payment',this.state.transaction)
             .then((res)=>{
                 console.log(res);
-                this.props.flipSubmit();
                 this.setState({
                     open: false,
                 });
+                this.props.flipSubmit();
+                
             })      
+    }
+    componentDidUpdate(prevProps,prevState){
+        if(prevProps.submit !== this.props.submit){
+            console.log('fetching');
+            Axios
+            .get('https://sharedfinance.herokuapp.com/data?status=unpaid')
+            .then((res)=>{
+                console.log(res.data);
+                let transaction = [...res.data]
+                this.setState({
+                    unpaidBill:res.data
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
     handleClose = () => {
         this.setState({open: false});
