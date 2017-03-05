@@ -10,7 +10,7 @@ var routes = require('./server/routes/index');
 var users = require('./server/routes/user');
 var transactions = require('./server/models/transaction');
 
-var hostedDB = process.NODE_ENV.MONGODB_URI;
+var hostedDB = process.env.NODE_ENV.MONGODB_URI;
 
 mongoose.connect(hostedDB, function(err) {
     if (err) {
