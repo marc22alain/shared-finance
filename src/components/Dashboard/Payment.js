@@ -33,9 +33,9 @@ class Payment extends Component {
     };
     return (
     <div className="payment-container row"> 
-        <div className="blue-bar col-lg-2"> 
+        <div className="blue-bar col-md-0 col-lg-2"> 
         </div>
-        <div className="account-balance col-lg-3">
+        <div className="account-balance col-md-12 col-lg-3">
             <h3>Account Balances</h3>
             <div className="checking button">
                 <span>Checking</span>
@@ -50,7 +50,7 @@ class Payment extends Component {
                 <span>${checking}</span>
             </div>
         </div>
-        <div className="bills col-lg-6">
+        <div className="bills col-md-12 col-lg-6">
             <UnpaidBill submit={this.state.submit} role={this.state.role} flipSubmit={this.flipSubmit}/>
             <PaidBill submit={this.state.submit} />
         </div>
