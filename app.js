@@ -10,10 +10,9 @@ var routes = require('./server/routes/index');
 var users = require('./server/routes/user');
 var transactions = require('./server/models/transaction');
 
-var localDB = 'mongodb://localhost/sharedfinance';
-// var hostedDB = 'mongodb://heroku_pfgs482g:oru1ndak8cke7sl335s2ginheu@ds061148.mongolab.com:61148/heroku_pfgs482g';
+var hostedDB = process.env.MONGODB_URI;
 
-mongoose.connect(localDB, function(err) {
+mongoose.connect(hostedDB, function(err) {
     if (err) {
         console.log('OOPS! ', err);     
     }
@@ -40,7 +39,16 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cookieParser());
+
+
 app.use(express.static(path.join(__dirname, './build')));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
+  res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+  next();
+});
 
 // default (?) route processor
 app.use('/', routes);

@@ -3,7 +3,7 @@ var express = require('express'),
   router = express.Router();
 
 /* GLOBALS */
-var openResPWD, openResCGV;
+var observers = [];
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -12,15 +12,29 @@ router.get('/', function(req, res) {
 
 /* Test route that works ... sends raw text. */
 router.get('/data', function(req, res) {
-	transactions.listUnpaidTransactions(function(data) {
+	transactions.listTransactions(req, function(data) {
 		res.jsonp(data);
 	});
 });
 
 /* Test route that works ... sends raw text. */
 router.post('/data', function(req, res) {
-	transactions.createTransaction(function(data) {
-		res.jsonp(data);
+	transactions.createTransaction(req.body, function(err, result) {
+		if (err) {
+			res.status(400).send(err);
+		} else {
+			res.jsonp(result);
+		}
+	});
+});
+
+router.delete('/data', function(req, res) {
+	transactions.Transaction.remove({}, function(err) {
+		if (err) {
+			res.status(400).send(err);
+		} else {
+			res.status(200).send();
+		}
 	});
 });
 
@@ -29,23 +43,17 @@ router.put('/payment', function(req, res) {
 		// do nothing with the data
 		var tranID = Math.floor(Math.random()*1000000);
 		res.jsonp( { confirmation: tranID });
+
+		observers.forEach(function(res) {
+			res.status(200).send();
+		});
 	});
 });
 
-/* Receive and handle long poll AJAX request from PWD's client. */
-router.post('/longpollpwd', function(req, res) {
-	// store the response object for later use
-	openResPWD = res;
-	// send a message to the CGV connection
-	openResCGV.jsonp(req.body);
-});
-
 /* Receive and handle long poll AJAX request from caregiver's client. */
-router.post('/longpollcgv', function(req, res) {
-	// store the response object for later use
-	openResCGV = res;
-	// send a message to the PWD connection
-	openResPWD.jsonp(req.body);
+router.get('/longpoll', function(req, res) {
+	// register the observer
+	observers.push(res);
 });
 
 module.exports = router;
